@@ -39,3 +39,22 @@ def run_ml_app():
         # 확률값 예측
         pred_prob = model.predict_proba(one_sample)
         st.write(pred_prob)
+
+        if prediction == 0:
+            st.success("Setosa 종")
+            pred_proba_scores = {
+                "1일 확률": pred_prob[0][0] * 100, 
+                "0일 확률": pred_prob[0][1] * 100, 
+            }
+            st.write(pred_proba_scores)
+            st.image('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Irissetosa1.jpg/220px-Irissetosa1.jpg')
+        elif prediction == 1:
+            st.success("00 종")
+            pred_proba_scores = {
+                "1일 확률": pred_prob[0][0] * 100, 
+                "0일 확률": pred_prob[0][1] * 100, 
+            }
+            st.write(pred_proba_scores)
+            st.image('https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Blue_Flag%2C_Ottawa.jpg/220px-Blue_Flag%2C_Ottawa.jpg')
+        else:
+            st.warning("아이돈노!")
