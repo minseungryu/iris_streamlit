@@ -26,3 +26,16 @@ def run_ml_app():
         model_file = "models/lgr_model_iris230331.pkl"
         model = joblib.load(open(os.path.join(model_file), 'rb'))
         st.write(model)
+
+        # 배열로 만듦
+        one_sample = np.array(sample_list).reshape(1, -1)
+        st.write(one_sample)
+        st.write(one_sample.shape)
+
+        # 범주 예측
+        prediction = model.predict(one_sample)
+        st.write(prediction)
+
+        # 확률값 예측
+        pred_prob = model.predict_proba(one_sample)
+        st.write(pred_prob)
