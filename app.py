@@ -2,6 +2,7 @@
 
 import streamlit as st
 from eda_app import run_eda_app
+# from 폴더명.파일명 import 함수명
 
 
 def main():
